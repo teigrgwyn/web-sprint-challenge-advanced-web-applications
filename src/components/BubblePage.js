@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
@@ -8,12 +8,12 @@ const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
 
   useEffect(() => {
-    axios.get()
+    axiosWithAuth().get('http://localhost:5000/api/colors') // all requests besides login should use axiosWithAuth
       .then(res => {
-
+        setColorList(res.data);
       })
       .catch(err => console.log(err));
-  })
+  }, []) // only run on mount/unmount
 
   return (
     <div className="container">
@@ -24,6 +24,3 @@ const BubblePage = () => {
 };
 
 export default BubblePage;
-
-//Task List:
-//1. When the component mounts, make an axios call to retrieve all color data and push to state.

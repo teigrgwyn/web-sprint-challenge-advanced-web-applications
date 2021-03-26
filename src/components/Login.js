@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
+// quick hack for faster testing
 const initialState = {
-  username: '',
-  password: ''
+  username: 'Lambda School',
+  password: 'i<3Lambd4'
 }
 
 const Login = (props) => {
@@ -19,12 +21,11 @@ const Login = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    
-    // can't use in reducer due to middleware required, easier to skip it and place here
-    axios.post('http://localhost:3000/api/login', form)
+
+    axios.post('http://localhost:5000/api/login', form)
       .then(res => {
         localStorage.setItem('token', res.data.token);
-        this.props.history.push('/bubbles');
+        props.history.push('/bubbles'); // works finally :D
       })
       .catch(err => setError(err.response.data.error))
 
