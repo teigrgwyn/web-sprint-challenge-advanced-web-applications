@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 // quick hack for faster testing
 const initialState = {
@@ -24,8 +23,9 @@ const Login = (props) => {
 
     axios.post('http://localhost:5000/api/login', form)
       .then(res => {
-        localStorage.setItem('token', res.data.token);
-        props.history.push('/bubbles'); // works finally :D
+        //console.log(localStorage.getItem('token'));
+        localStorage.setItem('token', JSON.stringify(res.data.payload)); // originally i wasn't stringifying this; headache for hours
+        props.history.push('/bubbles');
       })
       .catch(err => setError(err.response.data.error))
 

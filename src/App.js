@@ -12,11 +12,11 @@ function App() {
       <div className="App">
         <header>
           Color Picker Sprint Challenge
-          <a data-testid="logoutButton" href="\">logout</a>
+          <a data-testid="logoutButton" href="\" onClick={localStorage.removeItem("token")}>logout</a>
         </header> 
 
         <Route exact path="/" component={Login} />
-        <PrivateRoute path="/protected" component={BubblePage} />
+        <PrivateRoute path="/bubbles" component={BubblePage} />
       </div>
     </Router>
   );
