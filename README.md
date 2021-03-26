@@ -20,20 +20,20 @@ In this project you will create a login page and request a token from the server
 
 ### Task 1: Project Setup
 
-* [ ] Fork and clone this repository.
-* [ ] Create a new branch with the 
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-* [ ] **RUN** `npm install` to install your dependencies.
-* [ ] **RUN** `npm start` to start your application.
+* [x] Fork and clone this repository.
+* [x] Create a new branch with the 
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
+* [x] **RUN** `npm install` to install your dependencies.
+* [x] **RUN** `npm start` to start your application.
 
 ### Task 2: CodeGrade Setup
 
-* [ ] Open the assignment in Canvas and click on the "Set up git" option.
-* [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
-* [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
-* [ ] Check to see that Codegrade has accepted your git submission.
+* [x] Open the assignment in Canvas and click on the "Set up git" option.
+* [x] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
+* [x] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
+* [x] Check to see that Codegrade has accepted your git submission.
 
 ### Task 3: Project Requirements
 
@@ -95,16 +95,17 @@ These goals may or may not be things you have learned in this module but they bu
 
 ## Submission format
 
-* [ ] Submit via Codegrade by committing and pushing any new changes.
-* [ ] Submit a pull-request to merge <firstName-lastName> branch into main. **Please don't merge your own pull request and make sure you are on your own repo**
-* [ ] Check codegrade for automated feedback.
-* [ ] Check codegrade on Monday following the Sprint Challenge for reviewer feedback.
-* [ ] Any changes pushed to your <firstName-lastName> branch will resubmitted to codegrade if pushed before the sprint challenge deadline. Changes after the deadline will not be reviewed.
+* [x] Submit via Codegrade by committing and pushing any new changes.
+* [x] Submit a pull-request to merge <firstName-lastName> branch into main. **Please don't merge your own pull request and make sure you are on your own repo**
+* [x] Check codegrade for automated feedback.
+* [x] Check codegrade on Monday following the Sprint Challenge for reviewer feedback.
+* [x] Any changes pushed to your <firstName-lastName> branch will resubmitted to codegrade if pushed before the sprint challenge deadline. Changes after the deadline will not be reviewed.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
+-> On interview_answers.md Page
 1. Explain what a token is used for.
 2. What steps can you take in your web apps to keep your data secure?
 3. Describe how web servers work.
