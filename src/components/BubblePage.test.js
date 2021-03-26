@@ -2,14 +2,34 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import BubblePage from "./BubblePage";
 
+jest.mock('../mocks/mockColors');
+
+const mockColors = [
+  {
+    color: "aliceblue",
+    code: {
+      hex: "#f0f8ff"
+    },
+    id: 1
+  },
+  {
+    color: "limegreen",
+    code: {
+      hex: "#99ddbc"
+    },
+    id: 2
+  }
+]
+
 test("Renders BubblePage without errors", () => {
-  // Finish this test
+  render(<BubblePage />);
 });
 
 test("Fetches data and renders the bubbles on mounting", () => {
-  // Finish this test
-});
+  const { rerender } = render(<BubblePage mockColors={[]} />);
+  
+  const loading = screen.getByText(/bubbles/i);
+  expect(loading).toBeInTheDocument();
 
-//Task List
-//1. Setup test for basic rendering of component
-//2. Setup test for initial rendering of bubbles on loading
+  rerender(<BubblePage mockColors={mockColors} />);
+});
