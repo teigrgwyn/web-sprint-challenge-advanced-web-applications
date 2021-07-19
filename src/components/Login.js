@@ -1,22 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 
-const Login = () => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+// quick hack for faster testing
+const initialState = {
+  username: 'Lambda School',
+  password: 'i<3Lambd4'
+}
 
-  useEffect(()=>{
-    // make a post request to retrieve a token from the api
-    // when you have handled the token, navigate to the BubblePage route
-  });
-  
-  const error = "";
-  //replace with error state
+const Login = (props) => {
+  const [form, setForm] = useState(initialState);
+  const [error, setError] = useState('');
+
+  const handleChanges = event => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    axios.post('http://localhost:5000/api/login', form)
+      .then(res => {
+        //console.log(localStorage.getItem('token'));
+        localStorage.setItem('token', JSON.stringify(res.data.payload)); // originally i wasn't stringifying this; headache for hours
+        props.history.push('/bubbles');
+      })
+      .catch(err => setError(err.response.data.error))
+
+    setForm(initialState);
+  }
 
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
-        <h2>Build login form here</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            data-testid="username"
+            name='username'
+            value={form.username}
+            onChange={handleChanges}
+            placeholder='username'
+            spellCheck='false'
+            autoComplete='off'
+          />
+          <input
+            data-testid="password"
+            name='password'
+            value={form.password}
+            onChange={handleChanges}
+            placeholder='password'
+            spellCheck='false'
+            autoComplete='off'
+          />
+          <input type='submit' />
+        </form>
       </div>
 
       <p data-testid="errorMessage" className="error">{error}</p>
